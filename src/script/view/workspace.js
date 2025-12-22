@@ -262,7 +262,9 @@ var Workspace = Class.create({
       } else if(direction === 'right') {
         titleText = "向右";
       }
-      _this.__pan[direction] = new Element('span', {'class' : 'view-control-pan pan-' + direction + ' fa fa-fw ' + faIconClass, 'title' : titleText});
+      let parentElement = new Element("div", {style:"width:fit-content;height:fit-content;position:unset;"});
+      parentElement.appendChild(new Element('span', {'class' : 'view-control-pan pan-' + direction + ' fa fa-fw ' + faIconClass, 'title' : titleText}));
+      _this.__pan[direction] = parentElement;
       _this.__pan.insert(_this.__pan[direction]);
       _this.__pan[direction].observe('click', function(event) {
         if (direction == 'home') {
@@ -284,8 +286,12 @@ var Workspace = Class.create({
     this.__controls.insert(this.__zoom);
     this.__zoom.track  = new Element('div', {'class' : 'zoom-track'});
     this.__zoom.handle = new Element('div', {'class' : 'zoom-handle', title : '拖动缩放'});
-    this.__zoom['in']  = new Element('div', {'class' : 'zoom-button zoom-in fa fa-fw fa-search-plus', title : '放大'});
-    this.__zoom['out'] = new Element('div', {'class' : 'zoom-button zoom-out fa fa-fw fa-search-minus', title : '缩小'});
+    let zoomInParent = new Element("div", {style:"width:fit-content;height:fit-content;"});
+    zoomInParent.appendChild(new Element('div', {'class' : 'zoom-button zoom-in fa fa-fw fa-search-plus', title : '放大'}));
+    this.__zoom['in']  = zoomInParent;
+    let zoomOutParent = new Element("div", {style:"width:fit-content;height:fit-content;"});
+    zoomOutParent.appendChild(new Element('div', {'class' : 'zoom-button zoom-out fa fa-fw fa-search-minus', title : '缩小'}));
+    this.__zoom['out'] = zoomOutParent;
     this.__zoom.label  = new Element('div', {'class' : 'zoom-crt-value'});
     this.__zoom.insert(this.__zoom['in']);
     this.__zoom.insert(this.__zoom.track);
