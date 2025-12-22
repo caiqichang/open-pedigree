@@ -28,8 +28,8 @@ var Workspace = Class.create({
     this.background = this.getPaper().rect(0,0, this.width, this.height).attr({fill: 'blue', stroke: 'none', opacity: 0}).toBack();
     this.background.node.setAttribute('class', 'panning-background');
 
-    this.workArea.insert(new Element('div', {'id': 'attribution'})
-      .insert('&copy; 2019-2022 Gene42 Inc.'));
+    // this.workArea.insert(new Element('div', {'id': 'attribution'})
+    //   .insert('&copy; 2019-2022 Gene42 Inc.'));
 
     this.adjustSizeToScreen = this.adjustSizeToScreen.bind(this);
     Event.observe (window, 'resize', me.adjustSizeToScreen);
@@ -146,8 +146,8 @@ var Workspace = Class.create({
   generateTopMenu: function() {
     var menu = new Element('div', {'id' : 'editor-menu'});
 
-    menu.insert(new Element('a', {'class': 'title', 'href': 'https://github.com/phenotips/open-pedigree'})
-        .update('Open Pedigree'));
+    // menu.insert(new Element('a', {'class': 'title', 'href': 'https://github.com/phenotips/open-pedigree'})
+    //     .update('Open Pedigree'));
 
     this.getWorkArea().insert({before : menu});
     var submenus = [];
@@ -187,7 +187,7 @@ var Workspace = Class.create({
         name : 'output',
         items: [
           { key : 'export',    label : 'Export', icon : 'file-export'},
-          { key : 'close',     label : 'Close', icon : 'times'}
+          // { key : 'close',     label : 'Close', icon : 'times'}
         ]
       }];
     }
@@ -209,11 +209,11 @@ var Workspace = Class.create({
     };
     submenus.each(_createSubmenu);
 
-    menu.insert(new Element('div', {'class': 'powered-by'})
-      .insert('Powered by ')
-      .insert(new Element('a', {'href': 'https://phenotips.com/'})
-        .update('PhenoTips')
-        .insert(new Element('sup').update('&reg;'))));
+    // menu.insert(new Element('div', {'class': 'powered-by'})
+    //   .insert('Powered by ')
+    //   .insert(new Element('a', {'href': 'https://phenotips.com/'})
+    //     .update('PhenoTips')
+    //     .insert(new Element('sup').update('&reg;'))));
   },
 
   /**

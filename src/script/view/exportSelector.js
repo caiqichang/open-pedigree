@@ -205,7 +205,11 @@ var ExportSelector = Class.create( {
      */
   hide: function() {
     this.dialog.closeDialog();
-  }
+  },
+
+  exportAsGA4GH: function() {
+    return PedigreeExport.exportAsGA4GH(editor.getGraph().DG, "all");
+  },
 });
 
 export default ExportSelector;

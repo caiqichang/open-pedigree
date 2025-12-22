@@ -22,6 +22,25 @@
     <!-- Open Pedigree bundle -->
     <script type="text/javascript" src="dist/pedigree.min.js"></script>
 
+    <script>
+      
+      // 初始化，使用第一个默认模板
+      function initData() {
+        document.fire('pedigree:graph:clear')
+      }
+
+      // 设置JSON数据
+      function setData(json) {
+        editor.getSaveLoadEngine().createGraphFromImportData(json, "GA4GH")
+      }
+
+      // 获取JSON数据
+      function getData() {
+        return editor.getExportSelector().exportAsGA4GH()
+      }
+      
+    </script>
+
   </head>
 
   <body id='body'>
