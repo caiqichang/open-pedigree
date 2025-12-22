@@ -353,28 +353,28 @@ var PersonVisuals = Class.create(AbstractPersonVisuals, {
       person = this.getNode();
     if (person.isFetus()) {
       var date = person.getGestationAge();
-      text = (date) ? date + ' weeks' : null;
+      text = (date) ? date + ' 周' : null;
     } else if(person.getLifeStatus() == 'alive') {
       if (person.getBirthDate()) {
         var age = getAge(person.getBirthDate(), null);
         if (age.indexOf('day') != -1) {
           text = age;                                                                // 5 days
         } else if (age.indexOf(' y') == -1) {
-          text = 'b. ' + person.getBirthDate().getFullYear() + ' (' + age + ')';     // b. 2014 (3 wk)
+          text = '生. ' + person.getBirthDate().getFullYear() + ' (' + age + ')';     // b. 2014 (3 wk)
         } else {
-          text = 'b. ' + person.getBirthDate().getFullYear();                        // b. 1972
+          text = '生. ' + person.getBirthDate().getFullYear();                        // b. 1972
         }
       }
     } else {
       if(person.getDeathDate() && person.getBirthDate()) {
         var age = getAge(person.getBirthDate(), person.getDeathDate());
         if (age.indexOf('day') != -1 || age.indexOf('wk') != -1 || age.indexOf('mo') != -1) {
-          text = 'd. ' + person.getDeathDate().getFullYear() + ' (' + age + ')';
+          text = '死. ' + person.getDeathDate().getFullYear() + ' (' + age + ')';
         } else {
           text = person.getBirthDate().getFullYear() + ' – ' + person.getDeathDate().getFullYear();
         }
       } else if (person.getDeathDate()) {
-        text = 'd. ' + person.getDeathDate().getFullYear();
+        text = '死. ' + person.getDeathDate().getFullYear();
       } else if(person.getBirthDate()) {
         text = person.getBirthDate().getFullYear() + ' – ?';
       }
@@ -532,7 +532,7 @@ var PersonVisuals = Class.create(AbstractPersonVisuals, {
   updateSBLabel: function() {
     this.getSBLabel() && this.getSBLabel().remove();
     if (this.getNode().getLifeStatus() == 'stillborn') {
-      this._stillBirthLabel = editor.getPaper().text(this.getX(), this.getY(), 'SB').attr(PedigreeEditorParameters.attributes.label);
+      this._stillBirthLabel = editor.getPaper().text(this.getX(), this.getY(), '死产').attr(PedigreeEditorParameters.attributes.label);
     } else {
       this._stillBirthLabel = null;
     }

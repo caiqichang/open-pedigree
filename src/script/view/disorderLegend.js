@@ -14,7 +14,7 @@ import Legend from 'pedigree/view/legend';
 var DisorgerLegend = Class.create( Legend, {
 
   initialize: function($super) {
-    $super('Disorders');
+    $super('疾病');
 
     this._disorderCache = {};
 
@@ -93,7 +93,8 @@ var DisorgerLegend = Class.create( Legend, {
       document.fire('disorder:color', {'id' : disorderID, color: color});
     }
 
-    return $super(disorderID, name);
+    // return $super(disorderID, name);
+    return $super(disorderID, "患者");
   },
 
   /**

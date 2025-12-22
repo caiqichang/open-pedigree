@@ -56,11 +56,11 @@ var ExportSelector = Class.create( {
     configListElementPED.insert(_addConfigOption(false, 'ped-options', 'export-subconfig-label', '无，为每个人生成新的数字ID', 'newid'));
 
     var configListElementPrivacy = new Element('table', {'id': 'privacyOptions', 'style': 'display:none'});
-    var privLabel = new Element('label', {'class': 'export-config-header'}).insert('Privacy export options:');
+    var privLabel = new Element('label', {'class': 'export-config-header'}).insert('隐私导出选项:');
     configListElementPrivacy.insert(privLabel.wrap('td').wrap('tr'));
-    configListElementPrivacy.insert(_addConfigOption(true,  'privacy-options', 'export-subconfig-label', 'All data', 'all'));
-    configListElementPrivacy.insert(_addConfigOption(false, 'privacy-options', 'export-subconfig-label', 'Remove personal information (name and age)', 'nopersonal'));
-    configListElementPrivacy.insert(_addConfigOption(false, 'privacy-options', 'export-subconfig-label', 'Remove personal information and free-form comments', 'minimal'));
+    configListElementPrivacy.insert(_addConfigOption(true,  'privacy-options', 'export-subconfig-label', '所有数据', 'all'));
+    configListElementPrivacy.insert(_addConfigOption(false, 'privacy-options', 'export-subconfig-label', '移除个人信息 (姓名和年龄)', 'nopersonal'));
+    configListElementPrivacy.insert(_addConfigOption(false, 'privacy-options', 'export-subconfig-label', '移除个人信息和评论', 'minimal'));
 
     var _addSelectOption = function (name, cssClass, labelText, options) {
       var optionWrapper = new Element('tr');
@@ -74,29 +74,29 @@ var ExportSelector = Class.create( {
     };
 
     var configListElementPDF = new Element('table', {'id': 'pdfOptions', 'style': 'display:none'});
-    var pdfLabel = new Element('label', {'class': 'export-config-header'}).insert('PDF export options:');
+    var pdfLabel = new Element('label', {'class': 'export-config-header'}).insert('PDF导出选项:');
     configListElementPDF.insert(pdfLabel.wrap('td').wrap('tr'));
-    configListElementPDF.insert(_addSelectOption('pdf-page-size', 'export-subconfig-label', 'Page Size ',
+    configListElementPDF.insert(_addSelectOption('pdf-page-size', 'export-subconfig-label', '纸张大小 ',
       [
         {label: 'A3', options: {value: 'A3'}},
         {label: 'A4', options: {value: 'A4', selected: true}},
         {label: 'A5', options: {value: 'A5'}},
-        {label: 'Executive', options: {value: 'EXECUTIVE'}},
-        {label: 'Legal', options: {value: 'LEGAL'}},
-        {label: 'Letter', options: {value: 'LETTER'}},
-        {label: 'Tabloid', options: {value: 'TABLOID'}}
+        {label: '行政纸', options: {value: 'EXECUTIVE'}},
+        {label: '法律纸', options: {value: 'LEGAL'}},
+        {label: '信纸', options: {value: 'LETTER'}},
+        {label: '报纸', options: {value: 'TABLOID'}}
       ]));
-    configListElementPDF.insert(_addSelectOption('pdf-page-orientation', 'export-subconfig-label', 'Page Orientation ',
+    configListElementPDF.insert(_addSelectOption('pdf-page-orientation', 'export-subconfig-label', '纸张方向 ',
       [
-        {label: 'Landscape', options: {value: 'landscape', selected: true}},
-        {label: 'Portrait', options: {value: 'portrait'}}
+        {label: '横向', options: {value: 'landscape', selected: true}},
+        {label: '竖向', options: {value: 'portrait'}}
       ]));
-    configListElementPDF.insert(_addSelectOption('pdf-legend-pos', 'export-subconfig-label', 'Legend Position ',
+    configListElementPDF.insert(_addSelectOption('pdf-legend-pos', 'export-subconfig-label', '图例位置 ',
       [
-        {label: 'Top Left', options: {value: 'TopLeft'}},
-        {label: 'Top Right', options: {value: 'TopRight', selected: true}},
-        {label: 'Bottom Left', options: {value: 'BottomLeft'}},
-        {label: 'Bottom Right', options: {value: 'BottomRight'}}
+        {label: '左上', options: {value: 'TopLeft'}},
+        {label: '右上', options: {value: 'TopRight', selected: true}},
+        {label: '左下', options: {value: 'BottomLeft'}},
+        {label: '右下', options: {value: 'BottomRight'}}
       ]));
 
     var promptConfig = new Element('div', {'class': 'import-section'}).update('选项:');

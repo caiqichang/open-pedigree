@@ -41,12 +41,12 @@ var Disorder = Class.create( {
     var baseOMIMServiceURL = Disorder.getOMIMServiceURL();
     var queryURL           = baseOMIMServiceURL + '&q=id:' + this._disorderID;
     //console.log("queryURL: " + queryURL);
-    new Ajax.Request(queryURL, {
-      method: 'GET',
-      onSuccess: this.onDataReady.bind(this),
-      //onComplete: complete.bind(this)
-      onComplete: callWhenReady ? callWhenReady : {}
-    });
+    // new Ajax.Request(queryURL, {
+    //   method: 'GET',
+    //   onSuccess: this.onDataReady.bind(this),
+    //   //onComplete: complete.bind(this)
+    //   onComplete: callWhenReady ? callWhenReady : {}
+    // });
   },
 
   onDataReady : function(response) {

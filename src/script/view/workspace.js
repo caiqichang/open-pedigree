@@ -248,26 +248,36 @@ var Workspace = Class.create({
     var _this = this;
     this.__controls = new Element('div', {'class' : 'view-controls'});
     // Pan controls
-    // this.__pan = new Element('div', {'class' : 'view-controls-pan', title : 'Pan'});
-    // this.__controls.insert(this.__pan);
-    // ['up', 'right', 'down', 'left', 'home'].each(function (direction) {
-    //   var faIconClass = (direction == 'home') ? 'fa-user' : 'fa-arrow-' + direction;
-    //   _this.__pan[direction] = new Element('span', {'class' : 'view-control-pan pan-' + direction + ' fa fa-fw ' + faIconClass, 'title' : 'Pan ' + direction});
-    //   _this.__pan.insert(_this.__pan[direction]);
-    //   _this.__pan[direction].observe('click', function(event) {
-    //     if (direction == 'home') {
-    //       _this.centerAroundNode(0);
-    //     } else if(direction == 'up') {
-    //       _this.panTo(_this.viewBoxX, _this.viewBoxY - 300);
-    //     } else if(direction == 'down') {
-    //       _this.panTo(_this.viewBoxX, _this.viewBoxY + 300);
-    //     } else if(direction == 'left') {
-    //       _this.panTo(_this.viewBoxX - 300, _this.viewBoxY);
-    //     } else {
-    //       _this.panTo(_this.viewBoxX + 300, _this.viewBoxY);
-    //     }
-    //   });
-    // });
+    this.__pan = new Element('div', {'class' : 'view-controls-pan', title : 'Pan'});
+    this.__controls.insert(this.__pan);
+    ['up', 'right', 'down', 'left', 'home'].each(function (direction) {
+      var faIconClass = (direction == 'home') ? 'fa-user' : 'fa-arrow-' + direction;
+      var titleText = "居中";
+      if (direction === 'up') {
+        titleText = "向上";
+      } else if(direction === 'down') {
+        titleText = "向下";
+      } else if(direction === 'left') {
+        titleText = "向左";
+      } else if(direction === 'right') {
+        titleText = "向右";
+      }
+      _this.__pan[direction] = new Element('span', {'class' : 'view-control-pan pan-' + direction + ' fa fa-fw ' + faIconClass, 'title' : titleText});
+      _this.__pan.insert(_this.__pan[direction]);
+      _this.__pan[direction].observe('click', function(event) {
+        if (direction == 'home') {
+          _this.centerAroundNode(0);
+        } else if(direction == 'up') {
+          _this.panTo(_this.viewBoxX, _this.viewBoxY - 300);
+        } else if(direction == 'down') {
+          _this.panTo(_this.viewBoxX, _this.viewBoxY + 300);
+        } else if(direction == 'left') {
+          _this.panTo(_this.viewBoxX - 300, _this.viewBoxY);
+        } else {
+          _this.panTo(_this.viewBoxX + 300, _this.viewBoxY);
+        }
+      });
+    });
     // Zoom controls
     var trackLength = 200;
     this.__zoom = new Element('div', {'class' : 'view-controls-zoom', title : 'Zoom'});

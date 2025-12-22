@@ -376,84 +376,84 @@ var PedigreeEditor = Class.create({
       },
       {
         'name' : 'gender',
-        'label' : 'Gender',
+        'label' : '性别',
         'type' : 'radio',
         'tab': 'Personal',
         'columns': 3,
         'values' : [
-          { 'actual' : 'M', 'displayed' : 'Male' },
-          { 'actual' : 'F', 'displayed' : 'Female' },
-          { 'actual' : 'U', 'displayed' : 'Unknown' }
+          { 'actual' : 'M', 'displayed' : '男' },
+          { 'actual' : 'F', 'displayed' : '女' },
+          { 'actual' : 'U', 'displayed' : '未知' }
         ],
         'default' : 'U',
         'function' : 'setGender'
       },
       {
         'name' : 'first_name',
-        'label': 'First name',
+        'label': '姓氏',
         'type' : 'text',
         'tab': 'Personal',
         'function' : 'setFirstName'
       },
       {
         'name' : 'last_name',
-        'label': 'Last name',
+        'label': '名字',
         'type' : 'text',
         'tab': 'Personal',
         'function' : 'setLastName'
       },
       {
         'name' : 'external_id',
-        'label': 'Identifier',
+        'label': '外部ID',
         'type' : 'text',
         'tab': 'Personal',
         'function' : 'setExternalID'
       },
       {
         'name' : 'carrier',
-        'label' : 'Carrier status',
+        'label' : '携带者状态',
         'type' : 'radio',
         'tab': 'Clinical',
         'values' : [
-          { 'actual' : '', 'displayed' : 'Not affected' },
-          { 'actual' : 'carrier', 'displayed' : 'Carrier' },
-          { 'actual' : 'affected', 'displayed' : 'Affected' },
-          { 'actual' : 'presymptomatic', 'displayed' : 'Pre-symptomatic' }
+          { 'actual' : '', 'displayed' : '未患病' },
+          { 'actual' : 'carrier', 'displayed' : '携带者' },
+          { 'actual' : 'affected', 'displayed' : '患病者' },
+          { 'actual' : 'presymptomatic', 'displayed' : '前症状期' }
         ],
         'default' : '',
         'function' : 'setCarrierStatus'
       },
       {
         'name' : 'evaluated',
-        'label' : 'Documented evaluation',
+        'label' : '文档评估',
         'type' : 'checkbox',
         'tab': 'Clinical',
         'function' : 'setEvaluated'
       },
       {
         'name' : 'disorders',
-        'label' : 'Disorders',
+        'label' : '疾病',
         'type' : 'disease-picker',
         'tab': 'Clinical',
         'function' : 'setDisorders'
       },
       {
         'name' : 'candidate_genes',
-        'label' : 'Genes',
+        'label' : '基因',
         'type' : 'gene-picker',
         'tab': 'Clinical',
         'function' : 'setGenes'
       },
       {
         'name' : 'hpo_positive',
-        'label' : 'Phenotypic features',
+        'label' : '表型特征',
         'type' : 'hpo-picker',
         'tab': 'Clinical',
         'function' : 'setHPO'
       },
       {
         'name' : 'date_of_birth',
-        'label' : 'Date of birth',
+        'label' : '出生日期',
         'type' : 'date-picker',
         'tab': 'Personal',
         'format' : 'dd/MM/yyyy',
@@ -461,7 +461,7 @@ var PedigreeEditor = Class.create({
       },
       {
         'name' : 'date_of_death',
-        'label' : 'Date of death',
+        'label' : '死亡日期',
         'type' : 'date-picker',
         'tab': 'Personal',
         'format' : 'dd/MM/yyyy',
@@ -469,69 +469,69 @@ var PedigreeEditor = Class.create({
       },
       {
         'name' : 'state',
-        'label' : 'Individual is',
+        'label' : '个体是',
         'type' : 'radio',
         'tab': 'Personal',
         'columns': 3,
         'values' : [
-          { 'actual' : 'alive', 'displayed' : 'Alive' },
-          { 'actual' : 'stillborn', 'displayed' : 'Stillborn' },
-          { 'actual' : 'deceased', 'displayed' : 'Deceased' },
-          { 'actual' : 'miscarriage', 'displayed' : 'Miscarriage' },
-          { 'actual' : 'unborn', 'displayed' : 'Unborn' },
-          { 'actual' : 'aborted', 'displayed' : 'Aborted' }
+          { 'actual' : 'alive', 'displayed' : '活产' },
+          { 'actual' : 'stillborn', 'displayed' : '死产' },
+          { 'actual' : 'deceased', 'displayed' : '死亡' },
+          { 'actual' : 'miscarriage', 'displayed' : '流产' },
+          { 'actual' : 'unborn', 'displayed' : '未出生' },
+          { 'actual' : 'aborted', 'displayed' : '中止妊娠' }
         ],
         'default' : 'alive',
         'function' : 'setLifeStatus'
       },
       {
         'name' : 'gestation_age',
-        'label' : 'Gestation age',
+        'label' : '孕龄',
         'type' : 'select',
         'tab': 'Personal',
-        'range' : {'start': 0, 'end': 50, 'item' : ['week', 'weeks']},
+        'range' : {'start': 0, 'end': 50, 'item' : ['周', '周']},
         'nullValue' : true,
         'function' : 'setGestationAge'
       },
       {
-        'label' : 'Heredity options',
+        'label' : '遗传选项',
         'name' : 'childlessSelect',
-        'values' : [{'actual': 'none', displayed: 'None'},{'actual': 'childless', displayed: 'Childless'},{'actual': 'infertile', displayed: 'Infertile'}],
+        'values' : [{'actual': 'none', displayed: '无'},{'actual': 'childless', displayed: '无子女'},{'actual': 'infertile', displayed: '不孕'}],
         'type' : 'select',
         'tab': 'Personal',
         'function' : 'setChildlessStatus'
       },
       {
         'name' : 'adopted',
-        'label' : 'Adopted',
+        'label' : '收养',
         'type' : 'checkbox',
         'tab': 'Personal',
         'function' : 'setAdopted'
       },
       {
         'name' : 'monozygotic',
-        'label' : 'Monozygotic twin',
+        'label' : '同卵双胞胎',
         'type' : 'checkbox',
         'tab': 'Personal',
         'function' : 'setMonozygotic'
       },
       {
         'name' : 'nocontact',
-        'label' : 'Not in contact with proband',
+        'label' : '未与先证者接触过',
         'type' : 'checkbox',
         'tab': 'Personal',
         'function' : 'setLostContact'
       },
       {
         'name' : 'placeholder',
-        'label' : 'Placeholder node',
+        'label' : '占位符节点',
         'type' : 'checkbox',
         'tab': 'Personal',
         'function' : 'makePlaceholder'
       },
       {
         'name' : 'comments',
-        'label' : 'Comments',
+        'label' : '评论',
         'type' : 'textarea',
         'tab': 'Clinical',
         'rows' : 2,
@@ -567,20 +567,20 @@ var PedigreeEditor = Class.create({
       },
       {
         'name' : 'gender',
-        'label' : 'Gender',
+        'label' : '性别',
         'type' : 'radio',
         'columns': 3,
         'values' : [
-          { 'actual' : 'M', 'displayed' : 'Male' },
-          { 'actual' : 'F', 'displayed' : 'Female' },
-          { 'actual' : 'U', 'displayed' : 'Unknown' }
+          { 'actual' : 'M', 'displayed' : '男' },
+          { 'actual' : 'F', 'displayed' : '女' },
+          { 'actual' : 'U', 'displayed' : '未知' }
         ],
         'default' : 'U',
         'function' : 'setGender'
       },
       {
         'name' : 'numInGroup',
-        'label': 'Number of persons in this group',
+        'label': '该组人数',
         'type' : 'select',
         'values' : [{'actual': 1, displayed: 'N'}, {'actual': 2, displayed: '2'}, {'actual': 3, displayed: '3'},
           {'actual': 4, displayed: '4'}, {'actual': 5, displayed: '5'}, {'actual': 6, displayed: '6'},
@@ -589,45 +589,45 @@ var PedigreeEditor = Class.create({
       },
       {
         'name' : 'external_ids',
-        'label': 'Identifier(s)',
+        'label': '外部ID',
         'type' : 'text',
         'function' : 'setExternalID'
       },
       {
         'name' : 'disorders',
-        'label' : 'Known disorders<br>(common to all individuals in the group)',
+        'label' : '已知疾病（团体中所有个体都常见）',
         'type' : 'disease-picker',
         'function' : 'setDisorders'
       },
       {
         'name' : 'comments',
-        'label' : 'Comments',
+        'label' : '评论',
         'type' : 'textarea',
         'rows' : 2,
         'function' : 'setComments'
       },
       {
         'name' : 'state',
-        'label' : 'All individuals in the group are',
+        'label' : '该组中的所有个体都是',
         'type' : 'radio',
         'values' : [
-          { 'actual' : 'alive', 'displayed' : 'Alive' },
-          { 'actual' : 'aborted', 'displayed' : 'Aborted' },
-          { 'actual' : 'deceased', 'displayed' : 'Deceased' },
-          { 'actual' : 'miscarriage', 'displayed' : 'Miscarriage' }
+          { 'actual' : 'alive', 'displayed' : '活产' },
+          { 'actual' : 'aborted', 'displayed' : '中止妊娠' },
+          { 'actual' : 'deceased', 'displayed' : '死亡' },
+          { 'actual' : 'miscarriage', 'displayed' : '流产' }
         ],
         'default' : 'alive',
         'function' : 'setLifeStatus'
       },
       {
         'name' : 'evaluatedGrp',
-        'label' : 'Documented evaluation',
+        'label' : '文档评估',
         'type' : 'checkbox',
         'function' : 'setEvaluated'
       },
       {
         'name' : 'adopted',
-        'label' : 'Adopted',
+        'label' : '收养',
         'type' : 'checkbox',
         'function' : 'setAdopted'
       }
@@ -655,27 +655,27 @@ var PedigreeEditor = Class.create({
     var _this = this;
     return new NodeMenu([
       {
-        'label' : 'Heredity options',
+        'label' : '遗传选项',
         'name' : 'childlessSelect',
-        'values' : [{'actual': 'none', displayed: 'None'},{'actual': 'childless', displayed: 'Childless'},{'actual': 'infertile', displayed: 'Infertile'}],
+        'values' : [{'actual': 'none', displayed: 'None'},{'actual': 'childless', displayed: '无子女'},{'actual': 'infertile', displayed: '不孕'}],
         'type' : 'select',
         'function' : 'setChildlessStatus'
       },
       {
         'name' : 'consangr',
-        'label' : 'Consanguinity of this relationship',
+        'label' : '血源关系',
         'type' : 'radio',
         'values' : [
-          { 'actual' : 'A', 'displayed' : 'Automatic' },
-          { 'actual' : 'Y', 'displayed' : 'Yes' },
-          { 'actual' : 'N', 'displayed' : 'No' }
+          { 'actual' : 'A', 'displayed' : '自动' },
+          { 'actual' : 'Y', 'displayed' : '是' },
+          { 'actual' : 'N', 'displayed' : '否' }
         ],
         'default' : 'A',
         'function' : 'setConsanguinity'
       },
       {
         'name' : 'broken',
-        'label' : 'Separated',
+        'label' : '分开',
         'type' : 'checkbox',
         'function' : 'setBrokenStatus'
       }

@@ -52,7 +52,13 @@ var NodeMenu = Class.create({
         this.tabs[tabName] = new Element('div', {'id': 'tab_' + tabName, 'class': 'content ' + activeClass});
         this.form.insert(this.tabs[tabName]);
 
-        this.tabHeaders[tabName] = new Element('dd', {'class': activeClass}).insert('<a>' + tabName + '</a>');
+        var tabNameText = "";
+        if (tabName === "Personal") {
+          tabNameText = "个人";
+        }else if (tabName === "Clinical") {
+          tabNameText = "临床";
+        }
+        this.tabHeaders[tabName] = new Element('dd', {'class': activeClass}).insert('<a>' + tabNameText + '</a>');
         var _this = this;
         var switchTab = function(tabName) {
           return function() {
@@ -112,7 +118,7 @@ var NodeMenu = Class.create({
     });
     // disease
     this.form.select('input.suggest-omim').each(function(item) {
-      if (!item.hasClassName('initialized')) {
+      if (!item.hasClassName('initialized') && false) {
         // Create the Suggest.
         item._suggest = new PhenoTips.widgets.Suggest(item, {
           script: Disorder.getOMIMServiceURL() + '&',
@@ -160,7 +166,7 @@ var NodeMenu = Class.create({
     });
     // genes
     this.form.select('input.suggest-genes').each(function(item) {
-      if (!item.hasClassName('initialized')) {
+      if (!item.hasClassName('initialized') && false) {
         var geneServiceURL = new XWiki.Document('GeneNameService', 'PhenoTips').getURL('get', 'outputSyntax=plain');
         item._suggest = new PhenoTips.widgets.Suggest(item, {
           script: geneServiceURL + '&json=true&',
@@ -200,7 +206,7 @@ var NodeMenu = Class.create({
     });
     // HPO terms
     this.form.select('input.suggest-hpo').each(function(item) {
-      if (!item.hasClassName('initialized')) {
+      if (!item.hasClassName('initialized') && false) {
         var solrServiceURL = HPOTerm.getServiceURL();
         item._suggest = new PhenoTips.widgets.Suggest(item, {
           script: solrServiceURL + 'rows=100&',
