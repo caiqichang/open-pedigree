@@ -100,7 +100,7 @@ var Person = Class.create(AbstractPerson, {
      * @param firstName
      */
   setFirstName: function(firstName) {
-    firstName && (firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1));
+    // firstName && (firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1));
     this._firstName = firstName;
     this.getGraphics().updateNameLabel();
   },
@@ -122,7 +122,7 @@ var Person = Class.create(AbstractPerson, {
      * @param lastName
      */
   setLastName: function(lastName) {
-    lastName && (lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1));
+    // lastName && (lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1));
     this._lastName = lastName;
     this.getGraphics().updateNameLabel();
     return lastName;
