@@ -26,14 +26,14 @@ var ExportSelector = Class.create( {
     };
     var typeListElement = new Element('table');
     typeListElement.insert(_addTypeOption(true,  'PED', 'ped'));
-    typeListElement.insert(_addTypeOption(false,  'GA4GH FHIR', 'GA4GH'));
+    typeListElement.insert(_addTypeOption(false,  'GA4GH FHIR(JSON)', 'GA4GH'));
     typeListElement.insert(_addTypeOption(false,  'SVG', 'svg'));
     typeListElement.insert(_addTypeOption(false,  'PDF', 'pdf'));
 
     var fileDownload = new Element('a', {'id': 'downloadLink', 'style': 'display:none'});
     mainDiv.insert(fileDownload);
 
-    var promptType = new Element('div', {'class': 'import-section'}).update('Data format:');
+    var promptType = new Element('div', {'class': 'import-section'}).update('数据格式:');
     var dataSection2 = new Element('div', {'class': 'import-block'});
     dataSection2.insert(promptType).insert(typeListElement);
     mainDiv.insert(dataSection2);
@@ -49,11 +49,11 @@ var ExportSelector = Class.create( {
       return optionWrapper;
     };
     var configListElementPED = new Element('table', {'id': 'pedOptions'});
-    var label = new Element('label', {'class': 'export-config-header'}).insert('Which of the following fields should be used to generate person IDs?');
+    var label = new Element('label', {'class': 'export-config-header'}).insert('使用以下哪种方式生成成员ID?');
     configListElementPED.insert(label.wrap('td').wrap('tr'));
-    configListElementPED.insert(_addConfigOption(true,  'ped-options', 'export-subconfig-label', 'External ID', 'external'));
-    configListElementPED.insert(_addConfigOption(false, 'ped-options', 'export-subconfig-label', 'Name', 'name'));
-    configListElementPED.insert(_addConfigOption(false, 'ped-options', 'export-subconfig-label', 'None, generate new numeric ID for everyone', 'newid'));
+    configListElementPED.insert(_addConfigOption(true,  'ped-options', 'export-subconfig-label', '外部ID', 'external'));
+    configListElementPED.insert(_addConfigOption(false, 'ped-options', 'export-subconfig-label', '名称', 'name'));
+    configListElementPED.insert(_addConfigOption(false, 'ped-options', 'export-subconfig-label', '无，为每个人生成新的数字ID', 'newid'));
 
     var configListElementPrivacy = new Element('table', {'id': 'privacyOptions', 'style': 'display:none'});
     var privLabel = new Element('label', {'class': 'export-config-header'}).insert('Privacy export options:');
@@ -99,14 +99,14 @@ var ExportSelector = Class.create( {
         {label: 'Bottom Right', options: {value: 'BottomRight'}}
       ]));
 
-    var promptConfig = new Element('div', {'class': 'import-section'}).update('Options:');
+    var promptConfig = new Element('div', {'class': 'import-section'}).update('选项:');
     var dataSection3 = new Element('div', {'class': 'import-block'});
     dataSection3.insert(promptConfig).insert(configListElementPED).insert(configListElementPrivacy).insert(configListElementPDF);
     mainDiv.insert(dataSection3);
 
     var buttons = new Element('div', {'class' : 'buttons import-block-bottom'});
-    buttons.insert(new Element('input', {type: 'button', name : 'export', 'value': 'Export', 'class' : 'button', 'id': 'export_button'}).wrap('span', {'class' : 'buttonwrapper'}));
-    buttons.insert(new Element('input', {type: 'button', name : 'cancel', 'value': 'Cancel', 'class' : 'button secondary'}).wrap('span', {'class' : 'buttonwrapper'}));
+    buttons.insert(new Element('input', {type: 'button', name : 'export', 'value': '导出', 'class' : 'button', 'id': 'export_button'}).wrap('span', {'class' : 'buttonwrapper'}));
+    buttons.insert(new Element('input', {type: 'button', name : 'cancel', 'value': '取消', 'class' : 'button secondary'}).wrap('span', {'class' : 'buttonwrapper'}));
     mainDiv.insert(buttons);
 
     var cancelButton = buttons.down('input[name="cancel"]');
@@ -119,7 +119,7 @@ var ExportSelector = Class.create( {
     });
 
     var closeShortcut = ['Esc'];
-    this.dialog = new PhenoTips.widgets.ModalPopup(mainDiv, {close: {method : this.hide.bind(this), keys : closeShortcut}}, {extraClassName: 'pedigree-import-chooser', title: 'Pedigree export', displayCloseButton: true});
+    this.dialog = new PhenoTips.widgets.ModalPopup(mainDiv, {close: {method : this.hide.bind(this), keys : closeShortcut}}, {extraClassName: 'pedigree-import-chooser', title: '家系图导出', displayCloseButton: true});
   },
 
   /*

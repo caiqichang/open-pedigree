@@ -169,24 +169,24 @@ var Workspace = Class.create({
       submenus = [{
         name : 'input',
         items: [
-          { key : 'templates', label : 'Templates', icon : 'copy'},
-          { key : 'import',    label : 'Import', icon : 'file-import'}
+          { key : 'templates', label : '模板', icon : 'copy'},
+          { key : 'import',    label : '导入', icon : 'file-import'}
         ]
       }, {
         name : 'edit',
         items: [
-          { key : 'undo',   label : 'Undo', icon : 'undo'},
-          { key : 'redo',   label : 'Redo', icon : 'redo'}
+          { key : 'undo',   label : '撤销', icon : 'undo'},
+          { key : 'redo',   label : '重做', icon : 'redo'}
         ]
       }, {
         name : 'reset',
         items: [
-          { key : 'clear',  label : 'Clear all', icon : 'times-circle'}
+          { key : 'clear',  label : '清除所有', icon : 'times-circle'}
         ]
       }, {
         name : 'output',
         items: [
-          { key : 'export',    label : 'Export', icon : 'file-export'},
+          { key : 'export',    label : '导出', icon : 'file-export'},
           // { key : 'close',     label : 'Close', icon : 'times'}
         ]
       }];
@@ -248,34 +248,34 @@ var Workspace = Class.create({
     var _this = this;
     this.__controls = new Element('div', {'class' : 'view-controls'});
     // Pan controls
-    this.__pan = new Element('div', {'class' : 'view-controls-pan', title : 'Pan'});
-    this.__controls.insert(this.__pan);
-    ['up', 'right', 'down', 'left', 'home'].each(function (direction) {
-      var faIconClass = (direction == 'home') ? 'fa-user' : 'fa-arrow-' + direction;
-      _this.__pan[direction] = new Element('span', {'class' : 'view-control-pan pan-' + direction + ' fa fa-fw ' + faIconClass, 'title' : 'Pan ' + direction});
-      _this.__pan.insert(_this.__pan[direction]);
-      _this.__pan[direction].observe('click', function(event) {
-        if (direction == 'home') {
-          _this.centerAroundNode(0);
-        } else if(direction == 'up') {
-          _this.panTo(_this.viewBoxX, _this.viewBoxY - 300);
-        } else if(direction == 'down') {
-          _this.panTo(_this.viewBoxX, _this.viewBoxY + 300);
-        } else if(direction == 'left') {
-          _this.panTo(_this.viewBoxX - 300, _this.viewBoxY);
-        } else {
-          _this.panTo(_this.viewBoxX + 300, _this.viewBoxY);
-        }
-      });
-    });
+    // this.__pan = new Element('div', {'class' : 'view-controls-pan', title : 'Pan'});
+    // this.__controls.insert(this.__pan);
+    // ['up', 'right', 'down', 'left', 'home'].each(function (direction) {
+    //   var faIconClass = (direction == 'home') ? 'fa-user' : 'fa-arrow-' + direction;
+    //   _this.__pan[direction] = new Element('span', {'class' : 'view-control-pan pan-' + direction + ' fa fa-fw ' + faIconClass, 'title' : 'Pan ' + direction});
+    //   _this.__pan.insert(_this.__pan[direction]);
+    //   _this.__pan[direction].observe('click', function(event) {
+    //     if (direction == 'home') {
+    //       _this.centerAroundNode(0);
+    //     } else if(direction == 'up') {
+    //       _this.panTo(_this.viewBoxX, _this.viewBoxY - 300);
+    //     } else if(direction == 'down') {
+    //       _this.panTo(_this.viewBoxX, _this.viewBoxY + 300);
+    //     } else if(direction == 'left') {
+    //       _this.panTo(_this.viewBoxX - 300, _this.viewBoxY);
+    //     } else {
+    //       _this.panTo(_this.viewBoxX + 300, _this.viewBoxY);
+    //     }
+    //   });
+    // });
     // Zoom controls
     var trackLength = 200;
     this.__zoom = new Element('div', {'class' : 'view-controls-zoom', title : 'Zoom'});
     this.__controls.insert(this.__zoom);
     this.__zoom.track  = new Element('div', {'class' : 'zoom-track'});
-    this.__zoom.handle = new Element('div', {'class' : 'zoom-handle', title : 'Drag to zoom'});
-    this.__zoom['in']  = new Element('div', {'class' : 'zoom-button zoom-in fa fa-fw fa-search-plus', title : 'Zoom in'});
-    this.__zoom['out'] = new Element('div', {'class' : 'zoom-button zoom-out fa fa-fw fa-search-minus', title : 'Zoom out'});
+    this.__zoom.handle = new Element('div', {'class' : 'zoom-handle', title : '拖动缩放'});
+    this.__zoom['in']  = new Element('div', {'class' : 'zoom-button zoom-in fa fa-fw fa-search-plus', title : '放大'});
+    this.__zoom['out'] = new Element('div', {'class' : 'zoom-button zoom-out fa fa-fw fa-search-minus', title : '缩小'});
     this.__zoom.label  = new Element('div', {'class' : 'zoom-crt-value'});
     this.__zoom.insert(this.__zoom['in']);
     this.__zoom.insert(this.__zoom.track);
