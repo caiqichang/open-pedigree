@@ -88,7 +88,7 @@ var Controller = Class.create({
     };
 
     // ...and display a OK/Cancel dialogue, calling "removeSelected()" on OK and "unhighlightSelected" on Cancel
-    if (window.confirm('All highlighted nodes will be removed. Do you want to proceed?')) {
+    if (window.confirm('所有关联的节点都将被删除，是否继续操作？')) {
       removeSelected();
     } else {
       unhighlightSelected();

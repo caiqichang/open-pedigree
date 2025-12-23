@@ -474,7 +474,7 @@ var PedigreeEditor = Class.create({
         'tab': 'Personal',
         'columns': 3,
         'values' : [
-          { 'actual' : 'alive', 'displayed' : '活产' },
+          { 'actual' : 'alive', 'displayed' : '存活' },
           { 'actual' : 'stillborn', 'displayed' : '死产' },
           { 'actual' : 'deceased', 'displayed' : '死亡' },
           { 'actual' : 'miscarriage', 'displayed' : '流产' },
@@ -611,7 +611,7 @@ var PedigreeEditor = Class.create({
         'label' : '该组中的所有个体都是',
         'type' : 'radio',
         'values' : [
-          { 'actual' : 'alive', 'displayed' : '活产' },
+          { 'actual' : 'alive', 'displayed' : '存活' },
           { 'actual' : 'aborted', 'displayed' : '中止妊娠' },
           { 'actual' : 'deceased', 'displayed' : '死亡' },
           { 'actual' : 'miscarriage', 'displayed' : '流产' }
