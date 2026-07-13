@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v6.1.0
         with:
-          node-version: 16.20.2
+          node-version: 14.21.3
       - name: Install Dependencies and Package
         run: |
           npm install
